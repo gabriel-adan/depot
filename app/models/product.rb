@@ -6,4 +6,8 @@ class Product < ActiveRecord::Base
 		with: %r{\.(jpg|png|gif)\Z}i,
 		message: 'Debe ser una Url de imagen con terminacion JPG, PNG O GIF.'
 	}
+
+	def self.latest
+		Product.order(:updated_at).last
+	end
 end
